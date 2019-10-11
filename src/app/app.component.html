@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+    
+  </h1>
+  <img width="300" alt="Angular Logo" src="../assets/image/ToDoList_Image.jpg">
+<h2>Please enter your Task Name and Priority: </h2>
+
+
+<input placeholder="Please enter a Task" [(ngModel)] = "TaskNames" onfocus="this.value = ''" class = "textarea"/>
+<input placeholder="Please enter a Priority" [(ngModel)] = "PriorityNames" onfocus="this.value = ''" class = "textarea"/>
+
+<button (click) = "AddNewTask()">Add</button>
+
+
+<ul *ngFor = "let Tasks of Task">
+  {{Tasks.TaskName}} 
+  {{Tasks.Priority}}
+
+  <button (click) = "RemoveTask(Tasks, TaskNames)">Delete</button>
+   <button (click) = "EditTask(Tasks, Priorities)">Edit</button>
+</ul>
+
+<!-- <textarea matInput placeholder="Type in your task"></textarea>
+<textarea matInput placeholder="Type in you Priority"></textarea> -->
+
+<h2 *ngIf = "empty">Your list is empty! </h2>
+
